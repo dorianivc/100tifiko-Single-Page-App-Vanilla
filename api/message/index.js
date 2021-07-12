@@ -3,6 +3,6 @@ module.exports = async function (context, req) {
   .then(response => response.json())
   .then(data => console.log(data));
     context.res.json({
-        text: data.phrase
+        text: response.phrase
     });
 };
