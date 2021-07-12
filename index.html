@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta phrase="viewport" content="width=device-width,initial-scale=1">
     <title>Cientifico</title>
     <link href="styles.css" rel="stylesheet">
 </head>
@@ -12,10 +12,10 @@
     <script>
         (async function() {
             const { text } = await( await fetch(`/api/message`)).json();
-            document.querySelector('#name').textContent = text;
+            document.querySelector('#phrase').textContent = text;
         }())
     </script>
-    <h1>Loading content from the API: <b id="name">...</b></h1>
+    <h1 style="text-align:center"></h1>>Random Phrase: <b id="phrase">...</b></h1>
     <main class="Main">
        
         <header class="Header" id="header"></header>
