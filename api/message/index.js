@@ -1,9 +1,19 @@
 module.exports = async function (context, req) {
-    const fetch= require('node-fetch');
+  const fetch = require("node-fetch");
 
-    let response;
-    await fetch('https://rick-and-morty-api-phrases.herokuapp.com/phrases/en_us/random').then(response => response.json()).then(data => response=data).catch(console.log("error"));
+  try {
+    const request = await fetch(
+      "https://rick-and-morty-api-phrases.herokuapp.com/phrases/en_us/random"
+    );
+    const body = await request.json();
+
     context.res.json({
-        text: String(response.phrase)
+      text: String(body.phrase),
     });
+  } catch (e) {
+    console.log(
+      `An error ocurred while fetching a random phrase: ${e.message}`,
+      e
+    );
+  }
 };
